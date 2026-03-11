@@ -2,7 +2,7 @@
 
 use std::collections::BTreeMap;
 
-use chrono::Utc;
+// Note: chrono::Utc::now() not available in WASM, use placeholder
 use greentic_types::cbor::canonical;
 use serde::{Deserialize, Serialize};
 use serde_json::Value as JsonValue;
@@ -186,7 +186,7 @@ fn create_index(flows: Vec<FlowEntry>) -> FlowIndex {
 
     FlowIndex {
         version: "1.0".to_string(),
-        last_updated: Utc::now().to_rfc3339(),
+        last_updated: "1970-01-01T00:00:00Z".to_string(), // Placeholder - set by runtime
         flows,
         term_frequencies,
         document_frequencies,
