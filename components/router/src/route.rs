@@ -123,10 +123,11 @@ fn do_route_message(input: &[u8]) -> JsonValue {
     };
 
     let config = &route_input.config;
-    let confidence_threshold = config
+    // TODO: Use these thresholds for more granular routing decisions
+    let _confidence_threshold = config
         .confidence_threshold
         .unwrap_or(DEFAULT_CONFIDENCE_THRESHOLD);
-    let ambiguity_threshold = config
+    let _ambiguity_threshold = config
         .ambiguity_threshold
         .unwrap_or(DEFAULT_AMBIGUITY_THRESHOLD);
 
