@@ -1,0 +1,13 @@
+[package]
+name = "fast2flow-wasm-runtime"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+wasmtime = "29"
+anyhow = "1"
+serde_json = "1"
+
+[dev-dependencies]
+greentic-types = { path = "../../../greentic-types" }

@@ -5,6 +5,7 @@ members = [
     "components/matcher",
     "components/router",
     "tests/e2e",
+    "tests/wasm-runtime",
 ]
 
 [workspace.package]
