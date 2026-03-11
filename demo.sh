@@ -16,21 +16,7 @@ echo ""
 
 echo "🧪 Running E2E Tests..."
 echo ""
-
-echo "--- Indexer: Build search index from flows ---"
-cargo test -p fast2flow-e2e test_indexer --quiet -- --nocapture 2>&1 | grep -E "(test |ok|PASSED)" || true
-
-echo ""
-echo "--- Matcher: BM25 intent matching ---"
-cargo test -p fast2flow-e2e test_matcher --quiet -- --nocapture 2>&1 | grep -E "(test |ok|PASSED)" || true
-
-echo ""
-echo "--- Router: Decision making ---"
-cargo test -p fast2flow-e2e test_router --quiet -- --nocapture 2>&1 | grep -E "(test |ok|PASSED)" || true
-
-echo ""
-echo "--- Full Pipeline: Index → Match → Route ---"
-cargo test -p fast2flow-e2e test_full_pipeline --quiet -- --nocapture 2>&1 | grep -E "(test |ok|PASSED)" || true
+cargo test -p fast2flow-e2e -- --nocapture 2>&1 | grep -E "(test tests::|ok|passed)"
 
 echo ""
 echo "🔧 Running WASM Runtime Validation..."
