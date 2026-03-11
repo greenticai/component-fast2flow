@@ -202,9 +202,9 @@ fn do_route_message(input: &[u8]) -> JsonValue {
 fn is_blocked_intent(flow: &FlowRef, blocked: Option<&Vec<String>>) -> bool {
     if let Some(blocked_list) = blocked {
         let flow_key = format!("{}:{}", flow.pack_id, flow.flow_id);
-        blocked_list.iter().any(|b| {
-            b == &flow.pack_id || b == &flow.flow_id || b == &flow_key
-        })
+        blocked_list
+            .iter()
+            .any(|b| b == &flow.pack_id || b == &flow.flow_id || b == &flow_key)
     } else {
         false
     }

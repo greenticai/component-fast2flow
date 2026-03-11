@@ -6,8 +6,8 @@
 
 use greentic_interfaces_guest::component_v0_6::node;
 
-pub mod index;
 mod descriptor;
+pub mod index;
 mod schema;
 
 #[cfg(target_arch = "wasm32")]
