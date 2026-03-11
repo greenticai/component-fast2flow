@@ -2,10 +2,12 @@
 //!
 //! Orchestrates the full routing pipeline with optional LLM fallback.
 
+#![allow(dead_code)] // Schema and descriptor functions used by runtime
+
 use greentic_interfaces_guest::component_v0_6::node;
 
-pub mod route;
 mod descriptor;
+pub mod route;
 mod schema;
 
 #[cfg(target_arch = "wasm32")]

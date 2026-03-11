@@ -2,10 +2,12 @@
 //!
 //! Builds a searchable index from flow metadata for fast intent matching.
 
+#![allow(dead_code)] // Schema and descriptor functions used by runtime
+
 use greentic_interfaces_guest::component_v0_6::node;
 
-pub mod index;
 mod descriptor;
+pub mod index;
 mod schema;
 
 #[cfg(target_arch = "wasm32")]

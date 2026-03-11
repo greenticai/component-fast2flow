@@ -4,6 +4,7 @@ members = [
     "components/indexer",
     "components/matcher",
     "components/router",
+    "tests/e2e",
 ]
 
 [workspace.package]

@@ -123,10 +123,11 @@ fn do_route_message(input: &[u8]) -> JsonValue {
     };
 
     let config = &route_input.config;
-    let confidence_threshold = config
+    // TODO: Use these thresholds for more granular routing decisions
+    let _confidence_threshold = config
         .confidence_threshold
         .unwrap_or(DEFAULT_CONFIDENCE_THRESHOLD);
-    let ambiguity_threshold = config
+    let _ambiguity_threshold = config
         .ambiguity_threshold
         .unwrap_or(DEFAULT_AMBIGUITY_THRESHOLD);
 
@@ -201,9 +202,9 @@ fn do_route_message(input: &[u8]) -> JsonValue {
 fn is_blocked_intent(flow: &FlowRef, blocked: Option<&Vec<String>>) -> bool {
     if let Some(blocked_list) = blocked {
         let flow_key = format!("{}:{}", flow.pack_id, flow.flow_id);
-        blocked_list.iter().any(|b| {
-            b == &flow.pack_id || b == &flow.flow_id || b == &flow_key
-        })
+        blocked_list
+            .iter()
+            .any(|b| b == &flow.pack_id || b == &flow.flow_id || b == &flow_key)
     } else {
         false
     }

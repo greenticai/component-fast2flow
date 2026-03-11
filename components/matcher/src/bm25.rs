@@ -190,7 +190,10 @@ fn calculate_bm25_scores(
     let n = flows.len() as f64; // Total number of documents
 
     // Calculate average document length
-    let total_length: usize = term_frequencies.values().map(|tf| tf.values().sum::<u32>() as usize).sum();
+    let total_length: usize = term_frequencies
+        .values()
+        .map(|tf| tf.values().sum::<u32>() as usize)
+        .sum();
     let avgdl = if flows.is_empty() {
         1.0
     } else {
@@ -295,8 +298,12 @@ mod tests {
         }
 
         let query_terms = tokenize("I want to book an appointment");
-        let scores =
-            calculate_bm25_scores(&query_terms, &flows, &term_frequencies, &document_frequencies);
+        let scores = calculate_bm25_scores(
+            &query_terms,
+            &flows,
+            &term_frequencies,
+            &document_frequencies,
+        );
 
         // Booking flow should score higher for this query
         assert!(scores[0] > scores[1]);
