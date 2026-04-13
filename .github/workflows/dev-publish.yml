@@ -1,0 +1,11 @@
+name: dev-publish
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: greenticai/.github/.github/workflows/wasm-component-ci.yml@main
