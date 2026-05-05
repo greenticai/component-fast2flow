@@ -8,14 +8,32 @@ members = [
 ]
 
 [workspace.package]
-version = "0.1.0"
+version = "1.1.0-dev.0"
 edition = "2024"
 rust-version = "1.91"
 license = "MIT"
 
 [workspace.dependencies]
-greentic-types = "0.4"
-greentic-interfaces-guest = { version = "0.4", default-features = false, features = ["component-v0-6"] }
-serde = { version = "1", features = ["derive"] }
+greentic-types = ">=1.1.0-dev, <1.2.0-0"
 serde_json = "1"
-chrono = { version = "0.4", default-features = false, features = ["alloc", "serde"] }
+
+[workspace.dependencies.greentic-interfaces-guest]
+version = ">=1.1.0-dev, <1.2.0-0"
+default-features = false
+features = [
+    "component-v0-6",
+]
+
+[workspace.dependencies.serde]
+version = "1"
+features = [
+    "derive",
+]
+
+[workspace.dependencies.chrono]
+version = "0.4"
+default-features = false
+features = [
+    "alloc",
+    "serde",
+]
